@@ -26,7 +26,11 @@ operators = packaging.specifiers.Specifier._operators.keys()
 
 def _read_file(filename):
     with open(filename) as f:
-        return f.readlines()
+        lines = f.readlines()
+    for line in lines:
+        if line.startswith('#'):
+            continue
+        yield line
 
 
 def _check_invalid_requirement(req):

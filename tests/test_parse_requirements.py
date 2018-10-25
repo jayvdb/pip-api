@@ -55,6 +55,7 @@ def test_parse_requirements_double_raises(monkeypatch):
 @pytest.mark.parametrize("lines", (
     ['foo==1.2.3 \\\n', '    --whatever=blahblah\n'],
     ['-r \\\n', '    b.txt\n'],
+    ['-r \\\n', '# comment', '    b.txt\n'],
 ))
 def test_parse_requirements_multiline(monkeypatch, lines):
     files = {
