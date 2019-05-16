@@ -204,7 +204,7 @@ def test_parse_requirements_editable_file(monkeypatch):
     files = {
         'a.txt': [
             "Django==1.11\n"
-            "-e file://.\n"
+            "-e .\n"
         ],
     }
     monkeypatch.setattr(pip_api._parse_requirements, '_read_file', files.get)
